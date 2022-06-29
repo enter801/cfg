@@ -87,3 +87,6 @@ source $ZSH/oh-my-zsh.sh
 alias cdp=~/projects/github.com/meetearnest/
 alias k=kubectl
 
+
+# Add ggo to PATH
+PATH="/Users/michaeljackson/.gogo/bin:${PATH}"
