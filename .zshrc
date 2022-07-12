@@ -86,7 +86,26 @@ source $ZSH/oh-my-zsh.sh
 
 alias cdp=~/projects/github.com/meetearnest/
 alias k=kubectl
-
+alias i=istioctl
 
 # Add ggo to PATH
 PATH="/Users/michaeljackson/.gogo/bin:${PATH}"
+
+### STS-TOKEN-TIMESAVERS
+export AWS_TKN_PATH='/Users/michaeljackson/projects/github.com/meetearnest/aws-sts-token-generator/aws-token.sh'
+export AWS_TKN_USR='michael.jackson@earnest.com'
+export AWS_ACCT_PRD='earnest'
+export AWS_ACCT_STG='est-staging'
+export AWS_ACCT_TOOLS='est-tools'
+export AWS_ACCT_DEV='e-development'
+export AWS_ACCT_SBX='est-sandbox'
+alias awstkn-sbx-ro="${AWS_TKN_PATH} --username ${AWS_TKN_USR} --account ${AWS_ACCT_SBX} --role Okta-Sandbox-DevProdRead --profile Okta-Sandbox-DevProdRead && export AWS_PROFILE=Okta-Sandbox-DevProdRead"
+alias awstkn-sbx-rw="${AWS_TKN_PATH} --username ${AWS_TKN_USR} --account ${AWS_ACCT_SBX} --role Okta-Sandbox-DevProdWrite --profile Okta-Sandbox-DevProdWrite && export AWS_PROFILE=Okta-Sandbox-DevProdWrite"
+alias awstkn-stg-ro="${AWS_TKN_PATH} --username ${AWS_TKN_USR} --account ${AWS_ACCT_STG} --role Okta-Staging-DevProdRead --profile Okta-Staging-DevProdRead && export AWS_PROFILE=Okta-Staging-DevProdRead"
+alias awstkn-tools-rw="${AWS_TKN_PATH} --username ${AWS_TKN_USR} --account ${AWS_ACCT_TOOLS} --role Okta-Tools-DevProdWrite --profile Okta-Tools-DevProdWrite && export AWS_PROFILE=Okta-Tools-DevProdWrite"
+alias awstkn-tools-admin="${AWS_TKN_PATH} --username ${AWS_TKN_USR}  --account ${AWS_ACCT_TOOLS} --role Okta-Tools-Administrator --profile Okta-Tools-Administrator && export AWS_PROFILE=Okta-Tools-Administrator"
+alias awstkn-prd-ro="${AWS_TKN_PATH} --username ${AWS_TKN_USR} --account ${AWS_ACCT_PRD} --role Okta-Production-DevProdRead --profile Okta-Production-DevProdRead && export AWS_PROFILE=Okta-Production-DevProdRead"
+alias kube-role=". role-utility assume_role arn:aws:iam::644712362974:role/pbe-slodev-eks-kubectl-auth-role kubectl_user eks-auth-kubectl"
+alias slodev-config="aws eks --region us-east-1 update-kubeconfig --name pbe-slodev-cluster --profile Okta-Sandbox-DevProdWrite"
+alias kube-sbx=". role-utility dettach_role && awstkn-sbx-rw && kube-role"
+alias dpplaybx2-config="aws eks --region us-east-1 update-kubeconfig --name eks-dpplaybx2-us-east-1 --profile Okta-Sandbox-DevProdWrite"
