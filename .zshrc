@@ -109,3 +109,8 @@ alias kube-role=". role-utility assume_role arn:aws:iam::644712362974:role/pbe-s
 alias slodev-config="aws eks --region us-east-1 update-kubeconfig --name pbe-slodev-cluster --profile Okta-Sandbox-DevProdWrite"
 alias kube-sbx=". role-utility dettach_role && awstkn-sbx-rw && kube-role"
 alias dpplaybx2-config="aws eks --region us-east-1 update-kubeconfig --name eks-dpplaybx2-us-east-1 --profile Okta-Sandbox-DevProdWrite"
+alias persistent-config="aws eks --region us-west-2 update-kubeconfig --name eks-persistent-us-west-2 --profile Okta-Sandbox-DevProdWrite"
+
+# Staging with saml2aws
+alias staging-config="aws eks --region us-east-1 update-kubeconfig --name c1-est-stg-us-east-1 --profile Okta-Staging-DevProdRead"
+alias staging-login="saml2aws login -a staging"
