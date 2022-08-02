@@ -114,3 +114,7 @@ alias persistent-config="aws eks --region us-west-2 update-kubeconfig --name eks
 # Staging with saml2aws
 alias staging-config="aws eks --region us-east-1 update-kubeconfig --name c1-est-stg-us-east-1 --profile Okta-Staging-DevProdRead"
 alias staging-login="saml2aws login -a staging"
+
+# vscode
+alias code=code-insiders
+
