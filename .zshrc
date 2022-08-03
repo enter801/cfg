@@ -118,3 +118,13 @@ alias staging-login="saml2aws login -a staging"
 # vscode
 alias code=code-insiders
 
+#dsa - stop all running docker containers
+dsa () {
+  RUNNING_CONTAINERS="$(docker ps -q)"
+  if [[ "${RUNNING_CONTAINERS}" == ""  ]]; then
+    echo "No containers are running."
+  else
+    echo "The following containers were stopped:"
+    docker stop $(echo ${RUNNING_CONTAINERS})
+  fi
+}
